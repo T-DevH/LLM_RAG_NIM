@@ -31,7 +31,7 @@ os.environ['NVIDIA_API_KEY'] = userdata.get('NVIDIA_API_KEY')
 ```
 
 # Workflow
-#Load Documents
+## Load Documents
 Load documents from a URL using WebBaseLoader:
 ```
 loader = WebBaseLoader("https://en.wikipedia.org/wiki/Pepsi-Cola_Made_with_Real_Sugar")
@@ -45,27 +45,27 @@ loader = PyPDFLoader(pdf_file_path)
 docs = loader.load()
 ```
 
-# Generate Embeddings
+## Generate Embeddings
 Create an instance of NVIDIAEmbeddings:
 ```
 embeddings = NVIDIAEmbeddings()
 ```
 
-# Split Documents
+## Split Documents
 Use `RecursiveCharacterTextSplitter` to split the documents:
 ```
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
 documents = text_splitter.split_documents(docs)
 ```
 
-# Create Vector Store
+## Create Vector Store
 Create a FAISS vector store from the documents and embeddings:
 ```
 vector = FAISS.from_documents(documents, embeddings)
 retriever = vector.as_retriever()
 ```
 
-# Define Prompt Templates
+## Define Prompt Templates
 Define a **HYDE** (Hypothetical Document Embeddings) template:
 ```
 hyde_template = """Even if you do not know the full answer, generate a one-paragraph hypothetical answer to the below question:
@@ -86,7 +86,7 @@ prompt = ChatPromptTemplate.from_template(template)
 answer_chain = prompt | model | StrOutputParser()
 ```
 
-# Create Chained Functions
+## Create Chained Functions
 Define a function to retrieve documents using HYDE:
 ```
 @chain
@@ -104,7 +104,7 @@ def final_chain(question):
         yield s
 ```
 
-# Execute the Pipeline
+## Execute the Pipeline
 Run the final chain function and print the output:
 ```
 for s in final_chain.stream("what is the value of sodium in Pepsi drink"):

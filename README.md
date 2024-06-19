@@ -1,6 +1,6 @@
 # LLM_RAG_NIM
 # Overview
-This Jupyter notebook demonstrates how to build a complex information retrieval and question-answering pipeline using LangChain and NVIDIA AI services (NVIDIA Inference Microservices). The workflow involves generating hypothetical documents, retrieving relevant documents, and providing answers to user queries based on the retrieved information.
+This Colab notebook demonstrates how to build a complex information retrieval and question-answering pipeline using LangChain and NVIDIA AI services (NVIDIA Inference Microservices). The workflow involves generating hypothetical documents, retrieving relevant documents, and providing answers to user queries based on the retrieved information.
 
 # Installation
 To get started, you need to install the required packages. Use the following commands to install them:

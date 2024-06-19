@@ -111,6 +111,13 @@ for s in final_chain.stream("what is the value of sodium in Pepsi drink"):
     print(s, end="")
 ```
 
+# Optional use gradio for a simple UI demo
+Make sure you install gradio 
+```
+!pip install gradio
+```
+![gradio NIM-LLM-RAG testing interface](imageNIM_LLM_RAG.png)
+
 # Conclusion
 This Colab notebook demonstrates how to build an advanced information retrieval and question-answering system using LangChain and NVIDIA NIM. The process involves generating hypothetical documents, retrieving relevant documents, and providing context-based answers, and leveraging the power of embeddings and vector search.
 
